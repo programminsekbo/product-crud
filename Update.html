@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <button onclick="onUpdate()">Update</button>
+
+    <script>
+
+       async function onUpdate(){
+        let id="66649270a9e9e30ec38d4457"   
+        let url="https://crud.teamrabbil.com/api/v1/UpdateProduct/"+id;
+
+        const myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+           
+        let rawData={
+                "ProductName":"DemoAjax",
+                "ProductCode":"abc123Ajax",
+                "Img":"abcAjax",
+                "UnitPrice":"12Ajax",
+                "Qty":"1Ajax",
+                "TotalPrice":"12Ajax"
+            }
+
+            let reqDetails={
+                headers:myHeaders,
+                method: "POST",
+                body: JSON.stringify(rawData),
+            }
+            
+            let data= await fetch(url,reqDetails)
+            let JsonData=await data.json();
+            console.log(JsonData);
+
+
+        }
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>
